@@ -400,7 +400,9 @@ namespace Emby.Server.Implementations.Library
 
             if (providers.Length == 0)
             {
-                providers = new IAuthenticationProvider[] { _defaultAuthenticationProvider };
+                // this function used to return assigne any user without an auth provider to the default.
+                // providers = new IAuthenticationProvider[] { _defaultAuthenticationProvider };
+                throw new NotSupportedException($"The user {user.Name} was found but no Authentication Provider with ID: {user.Policy.AuthenticationProviderId} was found");
             }
 
             return providers;
