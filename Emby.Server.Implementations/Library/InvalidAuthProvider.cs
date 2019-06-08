@@ -20,7 +20,7 @@ namespace Emby.Server.Implementations.Library
 
         public async Task<bool> HasPassword(User user)
         {
-            return false;
+            return true;
         }
 
         public async Task ChangePassword(User user, string newPassword)
